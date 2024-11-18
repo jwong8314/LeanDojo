@@ -88,4 +88,4 @@ def check_git_version(min_version: Tuple[int, int, int]) -> None:
     ), f"Git version {version_str} is too old. Please upgrade to at least {min_version_str}."
 
 
-check_git_version((2, 25, 0))
+check_git_version((2, 5, 0))

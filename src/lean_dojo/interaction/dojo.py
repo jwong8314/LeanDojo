@@ -171,7 +171,7 @@ class Dojo:
         # Run the modified file in a container.
         with working_directory(traced_repo_path):
             memory_limit = 1024 * int(TACTIC_MEMORY_LIMIT[:-1])
-            modified_path = Path(self.modified_file.name).relative_to(traced_repo_path)
+            modified_path = Path(self.modified_file.name).relative_to(traced_repo_path.resolve())
             cmd = f"lake env lean --threads={TACTIC_CPU_LIMIT} --memory={memory_limit} {modified_path}"
             self.proc = pexpect.spawn(
                 cmd, timeout=self.timeout, maxread=1, encoding="utf-8", echo=False
